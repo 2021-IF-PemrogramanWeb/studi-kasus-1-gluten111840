@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a6ad6194-69f4-42c9-8bc4-f806cc17647a" name="Apache2" url="http://localhost:80/studi-kasus-1-gluten111840">
+        <fileTransfer mountedRoot="D:\PWEB\studi-kasus-1-gluten111840" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
