@@ -190,28 +190,24 @@
                         <thead>
                             <tr>
                                 <th width="50px">No</th>
-                                <th>City</th>
-                                <th>Phone</th>
-                                <th>Employees</th>
-                                <th>State</th>
-                                <th>Country</th>
-                                <th>Postal Code</th>
+                                <th>On</th>
+                                <th>Off</th>
+                                <th>Ack By</th>
+                                <th>Reason</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                                 $no=1;
-                                $hasil = $jembatan->tampil_data('offices');
+                                $hasil = $jembatan->tampil_data_join('interlock_cars', 'reason', 'id_reason', 'id_reason');
                                 foreach($hasil as $data) {
                             ?>
                             <tr>
                                 <td><?php echo $no; ?></td>
-                                <td><?php echo $data['city']; ?></td>
-                                <td><?php echo $data['phone']; ?></td>
-                                <td><?php echo $data['employees'];?></td>
-                                <td><?php echo $data['state']; ?></td>
-                                <td><?php echo $data['country']; ?></td>
-                                <td><?php echo $data['postalCode']; ?></td>
+                                <td><?php echo $data['turn_on']; ?></td>
+                                <td><?php echo $data['turn_off']; ?></td>
+                                <td><?php echo $data['ack_by'];?></td>
+                                <td><?php echo $data['txtreason'];?></td>
                             </tr>
                             <?php
                                 $no++;

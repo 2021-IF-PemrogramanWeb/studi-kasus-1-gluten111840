@@ -29,7 +29,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index.pho" class="nav-link">Home</a>
+        <a href="index.php" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="chart.php" class="nav-link">Chart</a>
@@ -230,15 +230,23 @@
 <script>
   
   $(function () {
-    var data        = [],
-        totalPoints = 100
-    /*
-     * BAR CHART
-     * ---------
-     */
-
+    <?php
+      $hasil = $jembatan->tampil_data('reason');
+    ?>
+    var data = []
     var bar_data = {
-      data : [[1,10], [2,8], [3,4], [4,13], [5,17], [6,9]],
+      // data : [[1,10], [2,8], [3,4], [4,13], [5,17], [6,9], ],
+      data : [
+        <?php
+          $no = 1;
+          foreach($hasil as $data => $value) {
+            ?> [<?php echo $no;?>, <?php echo $value['jumlah'];
+        ?>], 
+        <?php
+          $no++;
+          }
+        ?>
+      ], 
       bars: { show: true }
     }
     $.plot('#bar-chart', [bar_data], {
@@ -253,18 +261,25 @@
         },
       },
       colors: ['#3c8dbc'],
+      
       xaxis : {
-        ticks: [[1,'January'], [2,'February'], [3,'March'], [4,'April'], [5,'May'], [6,'June']]
+        ticks: [[1,'Interlock Hose Reel Front'], [2,'Interlock Hose Reel Rear'], [3,'Interlock Input Coupler Stow'], [4,'Interlock Input Hose Boom Stow'], [5,'Interlock Platform Stow'], [6,'Interlock Platform Nozzle Left'], [7, 'Interlock Platform Nozzle Right'], [8, 'Interlock Boom Stow'],
+         [9, 'Interlock Bonding Static Reel Front'], [10, 'Interlock Bonding Static Reel Rear'], [11, 'Interlock Bottom Loading'], [12, 'Interlock Handrail'], [13, 'PTO'], [14, 'Preventive Maintenance'], [15, 'Interlock System Fault'], [16, 'Breakdown']]
+        // ticks: [
+        //   <?php
+        //     $nmr = 1;
+        //     foreach($hasil as $datas => $values) {
+        //       ?> [<?php echo $nmr;?>, <?php echo $values['city'];
+        //   ?>], 
+        //   <?php
+        //     $nmr++;
+        //     }  
+        //   ?>
+        // ]
       }
     })
-    /* END BAR CHART */
-
   })
 
-  /*
-   * Custom Label formatter
-   * ----------------------
-   */
   function labelFormatter(label, series) {
     return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
       + label

@@ -33,6 +33,13 @@ class Controller
         return $hasil = $row->fetchAll();
     }
 
+    function tampil_data_join($tabel1, $tabel2, $con1, $con2) 
+    {
+        $row = $this->db->prepare("SELECT * FROM $tabel1 JOIN $tabel2 ON $tabel1.$con1 = $tabel2.$con2 WHERE $tabel1.$con1 = $tabel2.$con2");
+        $row->execute();
+        return $hasil = $row->fetchAll();
+    }
+
     function tambah_data($tabel,$data)
     {
         // buat array untuk isi values insert sumber kode 
