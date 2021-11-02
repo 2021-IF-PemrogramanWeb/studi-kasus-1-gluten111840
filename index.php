@@ -183,10 +183,10 @@
       <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">DataTable of Offices</h3>
+                    <h3 class="card-title">DataTable of Broken Cars</h3>
                 </div>
                 <div style="padding-left: 20px; padding-right: 20px">
-                    <table class="table table-hover table-bordered" id="mytable" style="margin-top: 10px">
+                    <table class="table table-bordered table-hover dataTable dtr-inline" id="mytable" style="margin-top: 10px">
                         <thead>
                             <tr>
                                 <th width="50px">No</th>
@@ -278,5 +278,35 @@
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard.js"></script>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="plugins/jszip/jszip.min.js"></script>
+<script src="plugins/pdfmake/pdfmake.min.js"></script>
+<script src="plugins/pdfmake/vfs_fonts.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<script>
+  $(function () {
+    $("#mytable").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#mytable_wrapper .col-md-6:eq(0)');
+    // $('#mytable').DataTable({
+    //   "paging": true,
+    //   "lengthChange": false,
+    //   "searching": false,
+    //   "ordering": true,
+    //   "info": true,
+    //   "autoWidth": false,
+    //   "responsive": true,
+    // });
+  });
+</script>
 </body>
 </html>
