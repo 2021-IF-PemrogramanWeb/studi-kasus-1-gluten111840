@@ -170,7 +170,7 @@ if(!empty($_SESSION)){ }else{ session_start(); }
             <div class="card">
                 <form class="box" method="post" action="loginMachine.php?aksi=login" id="formlogin">
                     <h1>Login</h1>
-                    <p class="text-muted"> Please enter your login and password!</p> 
+                    <p class="text-muted"> Please enter your E-mail and Password!</p> 
                     <input type="text" name="email" placeholder="E-mail" class="form-control" required="required" autocomplete="off"> 
                     <input type="password" name="pass" placeholder="Password" class="form-control" required="required" autocomplete="off"> 
                     <p class="text-muted">Didn't have any account? <a href="register.php">Register</a></p>
