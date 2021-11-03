@@ -35,6 +35,17 @@ if(!empty($_SESSION)){ }else{ session_start(); }
             margin-top: 100px
         }
 
+        .box_notif {
+            width: 500px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            transition: 0.25s;
+            margin-top: 100px
+        }
+
         .box input[type="text"],
         .box input[type="password"] {
             border: 0;
@@ -179,6 +190,7 @@ if(!empty($_SESSION)){ }else{ session_start(); }
             </div>
         </div>
     </div>
+</div>
     <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'></script>
     <script>
