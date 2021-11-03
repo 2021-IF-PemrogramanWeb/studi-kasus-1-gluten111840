@@ -19,6 +19,24 @@ class Controller
         }
     }
 
+    function register_process($name, $email, $username, $phone, $password) 
+    {
+        $checker_email = $this->db->prepare("SELECT email FROM user WHERE email = '$email'");
+        $checker_email->execute();
+        $count = $checker_email->rowCount();
+        if($count == 0) 
+        {
+            $sql = "INSERT INTO user (nama, username, email, password, no_hp) VALUES ('$name', '$username', '$email', md5('$password'), '$phone')";
+            $row = $this->db->prepare($sql);
+
+            return $row ->execute();
+        }
+        else 
+        {
+            return 'gagal';
+        }
+    }
+
     function tampil_data_id($tabel,$where,$id)
     {
         $row = $this->db->prepare("SELECT * FROM $tabel WHERE $where = ?");

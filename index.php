@@ -238,9 +238,9 @@
   <?php } else {?>
     <br/>
     <div class="alert alert-info">
-        <h3> Maaf Anda Belum Dapat Akses CRUD, Silahkan Login Terlebih Dahulu !</h3>
+        <h3>Please login before entering Dashboard</h3>
         <hr/>
-    <p><a href="login.php">Login Di sini</a></p>
+    <p><a href="login.php">Login</a></p>
     </div>
     <?php }?>
 </div>

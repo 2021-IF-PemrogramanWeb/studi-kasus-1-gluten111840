@@ -167,7 +167,7 @@
           <div class="card-header">
             <h3 class="card-title">
               <i class="far fa-chart-bar"></i>
-                Bar Chart
+                Chart of Reason
             </h3>
 
             <div class="card-tools">
@@ -185,6 +185,36 @@
           <!-- /.card-body-->
         </div>
         <!-- /.card -->
+        <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">DataTable of Reason</h3>
+                </div>
+                <div style="padding-left: 20px; padding-right: 20px">
+                    <table class="table table-bordered table-hover dataTable dtr-inline" id="mytable" style="margin-top: 10px">
+                        <thead>
+                            <tr>
+                                <th width="50px">ID</th>
+                                <th>Reason</th>
+                                <th>Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                $hasil = $jembatan->tampil_data('reason');
+                                foreach($hasil as $data) {
+                            ?>
+                            <tr>
+                                <td><?php echo $data['id_reason']; ?></td>
+                                <td><?php echo $data['txtreason']; ?></td>
+                                <td><?php echo $data['jumlah'];?></td>
+                            </tr>
+                            <?php
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+          </div>
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -228,6 +258,23 @@
 <script src="dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
+  $(function () {
+    $("#mytable").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#mytable_wrapper .col-md-6:eq(0)');
+    // $('#mytable').DataTable({
+    //   "paging": true,
+    //   "lengthChange": false,
+    //   "searching": false,
+    //   "ordering": true,
+    //   "info": true,
+    //   "autoWidth": false,
+    //   "responsive": true,
+    // });
+  });
+</script>
+<script>
   
   $(function () {
     <?php
@@ -263,8 +310,8 @@
       colors: ['#3c8dbc'],
       
       xaxis : {
-        ticks: [[1,'Interlock Hose Reel Front'], [2,'Interlock Hose Reel Rear'], [3,'Interlock Input Coupler Stow'], [4,'Interlock Input Hose Boom Stow'], [5,'Interlock Platform Stow'], [6,'Interlock Platform Nozzle Left'], [7, 'Interlock Platform Nozzle Right'], [8, 'Interlock Boom Stow'],
-         [9, 'Interlock Bonding Static Reel Front'], [10, 'Interlock Bonding Static Reel Rear'], [11, 'Interlock Bottom Loading'], [12, 'Interlock Handrail'], [13, 'PTO'], [14, 'Preventive Maintenance'], [15, 'Interlock System Fault'], [16, 'Breakdown']]
+        // ticks: [[1,'Interlock Hose Reel Front'], [2,'Interlock Hose Reel Rear'], [3,'Interlock Input Coupler Stow'], [4,'Interlock Input Hose Boom Stow'], [5,'Interlock Platform Stow'], [6,'Interlock Platform Nozzle Left'], [7, 'Interlock Platform Nozzle Right'], [8, 'Interlock Boom Stow'],
+        //  [9, 'Interlock Bonding Static Reel Front'], [10, 'Interlock Bonding Static Reel Rear'], [11, 'Interlock Bottom Loading'], [12, 'Interlock Handrail'], [13, 'PTO'], [14, 'Preventive Maintenance'], [15, 'Interlock System Fault'], [16, 'Breakdown']]
         // ticks: [
         //   <?php
         //     $nmr = 1;

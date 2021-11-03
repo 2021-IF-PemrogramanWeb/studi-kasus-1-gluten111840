@@ -5,7 +5,7 @@ if(!empty($_SESSION)){ }else{ session_start(); }
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Login</title>
+    <title>Register</title>
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet'>
     <link href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' rel='stylesheet'>
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
@@ -154,27 +154,23 @@ if(!empty($_SESSION)){ }else{ session_start(); }
 <div class="container">
     <div class="row">
     <div class="col-md-6">
-    <br/><br/>
-            <div id="logout">
-                <?php if(isset($_GET['signout'])){?>
-                    <div class="alert alert-success">
-                        <small>Logged out</small>
-                    </div>
-                <?php }?>
-            </div>
             <div id="notifikasi">
                 <div class="alert alert-danger">
-                    <small>Your login was failed. Please check your data!</small>
+                    <small>Your registration was failed. Please check your data!</small>
                 </div>
             </div>
             <div class="card">
-                <form class="box" method="post" action="loginMachine.php?aksi=login" id="formlogin">
-                    <h1>Login</h1>
-                    <p class="text-muted"> Please enter your login and password!</p> 
+                <form class="box" method="post" action="registerMachine.php?aksi=register" id="formregister">
+                    <h1>Register</h1>
+                    <p class="text-muted">Register Your Account</p> 
+                    <input type="text" name="nama" placeholder="Name" class="form-control" required="required" autocomplete="off">
                     <input type="text" name="email" placeholder="E-mail" class="form-control" required="required" autocomplete="off"> 
-                    <input type="password" name="pass" placeholder="Password" class="form-control" required="required" autocomplete="off"> 
-                    <p class="text-muted">Didn't have any account? <a href="register.php">Register</a></p>
-                    <button type="submit" name="proses_login">Login</button>
+                    <input type="text" name="username" placeholder="Username" class="form-control" required="required" autocomplete="off">
+                    <input type="text" name="no_hp" placeholder="Phone Number" class="form-control" required="required" autocomplete="off">
+                    <input type="password" name="pass" placeholder="Password" class="form-control" required="required" autocomplete="off">
+                    <input type="password" name="repass" placeholder="Re-type Password" class="form-control" required="required" autocomplete="off">
+                    <p class="text-muted">Already had an account? <a href="login.php">Login</a></p>
+                    <button type="submit" name="proses_login">Register</button>
                 </form>
             </div>
         </div>
@@ -186,11 +182,10 @@ if(!empty($_SESSION)){ }else{ session_start(); }
         <?php if(empty($_GET['get'])){?>
         $("#notifikasi").hide();
         <?php }?>
-        let logingagal = function(){
-            $("#logout").fadeOut('slow');
+        let reggagal = function(){
             $("#notifikasi").fadeOut('slow');
         };
-        setTimeout(logingagal, 4000);
+        setTimeout(reggagal, 4000);
     </script>
 </body>
 </html>
