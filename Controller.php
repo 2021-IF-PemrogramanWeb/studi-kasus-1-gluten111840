@@ -21,8 +21,8 @@ class Controller
 
     function register_process($name, $email, $username, $phone, $password) 
     {
-        $checker_email = $this->db->prepare("SELECT email FROM user WHERE email = '$email'");
-        $checker_email->execute();
+        $checker_email = $this->db->prepare("SELECT email FROM user WHERE email = ?");
+        $checker_email->execute(array($email));
         $count = $checker_email->rowCount();
         if($count == 0) 
         {

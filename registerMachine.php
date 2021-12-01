@@ -10,6 +10,7 @@
         $phone = strip_tags($_POST['no_hp']);
         $pass = strip_tags($_POST['pass']);
         $repass = strip_tags($_POST['repass']);
+
         if($pass == $repass)
         {
             $result = $jembatan->register_process($name, $email, $username, $phone, $pass);
